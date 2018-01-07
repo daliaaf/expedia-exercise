@@ -17,8 +17,8 @@
 <body>
 
 <form action="index.php" method="post">
-	Destination Name: <input name="name" type = "text" placeholder="search hotels"></br>
-	Destination City: <input name="city" type = "text" placeholder="search hotels"></br>
+	Destination Name: <input name="name" type = "text" ></br>
+	Destination City: <input name="city" type = "text" ></br>
 	Region Id: <input name="region" type = "number" ></br>
 	Min Trip Start Date:<input name="minTSD" size="10" type="text" value="" readonly class="form_datetime" ></br>
 	Max Trip Start Date:<input name="maxTSD" size="10" type="text" value="" readonly class="form_datetime" ></br>
@@ -51,7 +51,6 @@ if(isset($_POST['name']))
 
 // Validate filed
 //$nameq= preg_replace("#[^0-9a-z]#i", "", $nameq);
-echo "daliaaaa".$region;
 
 //create complex query search
     $searchq=(($nameq == '') ? '' : "&destinationName=".urlencode($nameq)).(($cityq == '') ? '' : "&destinationCity=".urlencode($cityq)).(($region == '') ? '' : "&"."regionIds=".$region).(($minTSD == '') ? '' : "&minTripStartDate=".date("Y-m-d", strtotime($minTSD) )).(($maxTSD == '') ? '' : "&maxTripStartDate=".date("Y-m-d", strtotime($maxTSD))).(($LOS == '') ? '' : "&lengthOfStay=".$LOS).(($minSR == '') ? '' : "&minStarRating=".$minSR).(($maxSR == '') ? '' : "&maxStarRating=".$maxSR).(($minGR == '') ? '' : "&minGuestRating=".$minGR).(($maxGR == '') ? '' : "&maxGuestRating=".$maxGR);
